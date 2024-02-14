@@ -1,0 +1,531 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Chifa Dragon Restaurant
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .nav-link:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .rounded-navbar {
+            border-radius: 9999px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 0.5rem;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .alert {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .alert-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 40%;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+  </style>
+ </head>
+ <body class="bg-gray-200">
+  <nav class="bg-white py-4 px-6 shadow-md">
+   <div class="flex justify-between items-center">
+    <div class="flex items-center">
+   
+     </i>
+     <div class="flex flex-col">
+     <ul>
+<li>
+                        <i class="fas fa-home"></i>
+                        Home
+                    </li>
+      
+      <li>
+                        🐲 Chifa Dragon 🐲
+                    </li>
+     </ul>
+      </span>
+     </div>
+    </div>
+    <div class="flex items-center">
+     <input class="border-2 border-gray-300 rounded-full py-1 px-3 mr-2" placeholder="¿Qué estás buscando?" type="text"/>
+     <button class="bg-red-600 text-white px-4 py-1 rounded-full">
+      Buscar
+     </button>
+    </div>
+    <div>
+     <i class="fas fa-shopping-cart text-gray-600">
+     </i>
+    </div>
+   </div>
+  </nav>
+  <header class="bg-gray-150 py-12 px-3 text-center mx-4 rounded-lg">
+   
+   <img  src="F:/Portada/PORM.gif" width="1800px" height="700px">
+   
+  </header>
+  <div class="bg-red-600 rounded-navbar mx-4 my-2">
+   <div class="max-w-screen-xl mx-auto py-2 px-6">
+    <div class="flex justify-center space-x-6 text-white font-bold">
+     <a class="nav-link hover:underline" href="#" onclick="document.getElementById('menuModal').style.display='block'">
+      MENÚ
+     </a>
+     <a class="nav-link hover:underline" href="#" onclick="document.getElementById('aboutModal').style.display='block'">
+      Quienes somos
+     </a>
+     <a class="nav-link hover:underline" href="#" onclick="document.getElementById('contactModal').style.display='block'">
+      Contáctanos
+     </a>
+     <a class="nav-link hover:underline" href="#" onclick="document.getElementById('reservationModal').style.display='block'">
+      Reserva una mesa
+     </a>
+     <a class="nav-link hover:underline" href="#" onclick="document.getElementById('orderModal').style.display='block'">
+      Realiza pedido en línea
+     </a>
+      <!-- Share Modal -->
+       <a class="nav-link hover:underline" href="#">
+      Compartir
+    <div class="modal" id="shareModal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('shareModal').style.display='none'">&times;</span>
+            <h2 class="font-bold text-lg mb-4">Compartir</h2>
+            <div class="flex justify-center">
+                <a href="https://wa.me/?text=Visita%20Chifa%20Dragon%20para%20disfrutar%20de%20los%20mejores%20sabores%20de%20Asia" target="_blank" class="share-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//chifadragon.com" target="_blank" class="share-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/?url=https%3A//chifadragon.com" target="_blank" class="share-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ... other content ... -->
+       
+     </a>
+    </div>
+   </div>
+  </div>
+  <!-- Menu Modal -->
+  <div class="modal" id="menuModal">
+   <div class="modal-content">
+    <span class="close" onclick="document.getElementById('menuModal').style.display='none'">
+     ×
+    </span>
+    <h2 class="font-bold text-lg mb-4">
+     🐲Menú de Comidas Chinas🐲
+    </h2>
+    <div class="grid grid-cols-4 gap-4">
+     <!-- Repeat for each menu item -->
+     <!-- Placeholder for 20 Chinese food items -->
+     <!-- Using placeholder images with descriptions -->
+     <!-- Replace with actual images and names when available -->
+     <!-- Start of repeated items -->
+     <!-- Example item -->
+     <div class="my-5">
+<p>
+       SOPA DE CHAMPIÑONES            Y POLLO
+
+      </p>
+
+   <img class="lineal" alt="Plato Chino 1" class="mb-3" height="200" src="F:/Comida/sopa de champiñones y pollo.png" width="100"/>
+-----------------------------------------------------------------      
+  <p>
+       ARROZ CHAUFA
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/arroz chaufa.jpeg" width="100"/>
+-----------------------------------------------------------------       
+    <p>
+       SOPA SAMS
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/sopa sams.jpeg" width="100"/>
+----------------------------------------------------------------- 
+<p>
+       TOFU MAPO CON CARNE DE RES
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/tofu mapo con carne de res.jpeg" width="100"/>
+----------------------------------------------------------------- 
+<p>
+       CHAULAFAN CON CARNE DE RES 
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/chaulafan con carne de res.jpeg" width="100"/>
+-----------------------------------------------------------------                                                                                             
+<p>
+       CHAULAFAN CON CAMARONES
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/chaulafan con camarones.jpg" width="100"/>
+----------------------------------------------------------------- 
+<p>
+   CHAULAFAN CON POLLO
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/chaulafan con pollo.jpg" width="100"/>
+----------------------------------------------------------------- 
+<p>
+       TALLARÍN SINGAPURE
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/tallarin singapure.jpg" width="100"/>
+----------------------------------------------------------------- 
+<p>
+       CAMARONES TAUSI CON VERDURAS 
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/camarones tausi con verduras.jpg" width="100"/>
+----------------------------------------------------------------- 
+<p>
+       LOMO ESPECIAL TAUSI 
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/lomo especial tausi.jpg" width="100"/>
+----------------------------------------------------------------- 
+<p>
+       TALLARIN SAM SI
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/tallarin sam si.jpg" width="100"/>
+----------------------------------------------------------------- 
+<p>
+      SOPA PAC POW
+      </p>  
+ <img class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/sopa pac pow.jpg" width="100"/>
+----------------------------------------------------------------- 
+<p>
+      TOFU UMAMI CON QUINOA
+      </p>  
+ <img  class="lineal" alt="Imagen de comida china - Nombre del plato" class="mx-auto mb-2" height="100" src="F:/Comida/tofu umami con quinoa.jpg" width="100"/>
+----------------------------------------------------------------- 
+     </div>
+
+     <!-- Repeat 19 more times -->
+     <!-- End of repeated items -->
+    </div>
+   </div>
+  </div>
+  <!-- About Modal -->
+  <div class="modal" id="aboutModal">
+   <div class="modal-content">
+    <span class="close" onclick="document.getElementById('aboutModal').style.display='none'">
+     ×
+    </span>
+    <h2 class="font-bold text-lg mb-4">
+     🐲¿Quienes somos?🐲
+    </h2>
+    <p>
+     Chifa Dragon es mucho más que un simple lugar para disfrutar de una buena comida. Somos un restaurante que encarna la esencia de la fusión culinaria entre Asia y Latinoamérica. En cada plato que servimos, te invitamos a descubrir la magia de nuestra especialidad: la comida chifa. Esta extraordinaria mezcla de técnicas culinarias chinas con los vibrantes ingredientes ecuatorianos es nuestro sello distintivo. En Chifa Dragon, no solo ofrecemos una experiencia gastronómica única, sino que también te damos la oportunidad de explorar y disfrutar de una conexión entre dos culturas a través de la comida. Te invitamos a unirte a nosotros y ser parte de esta aventura culinaria que estamos seguros te dejará con ganas de volver por más.
+    </p>
+   </div>
+  </div>
+  <!-- Contact Modal -->
+  <div class="modal" id="contactModal">
+   <div class="modal-content">
+    <span class="close" onclick="document.getElementById('contactModal').style.display='none'">
+     ×
+    </span>
+    <h2 class="font-bold text-lg mb-4">
+     🐲Contáctanos🐲
+    </h2>
+    <p>
+     Puedes llamarnos al siguiente número para más información o para hacer un pedido:
+    </p>
+    <p>
+     <strong>
+      Teléfono:
+     </strong>
+     +1 734 567 8400 
+    </p>
+<p>
+<strong>
+                 
+</strong>  
++2 834 742 5400
+</p>
+<p>
+<strong>
+                 
+</strong>  
++2 944 772 6400
+</p>
+<p>
+<strong>
+                 
+</strong>  
++2 104 542 2200
+</p>
+   </div>
+  </div>
+  <!-- Reservation Modal -->
+  <div class="modal" id="reservationModal">
+   <div class="modal-content">
+    <span class="close" onclick="document.getElementById('reservationModal').style.display='none'">
+     ×
+    </span>
+    <h2 class="font-bold text-lg mb-4">
+     🐲Reserva una mesa🐲
+    </h2>
+    <form onsubmit="event.preventDefault(); document.getElementById('reservationModal').style.display='none'; document.getElementById('reservationAlert').style.display='block';">
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+       Nombre:
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" required="" type="text"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="date">
+       Fecha:
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date" name="date" required="" type="date"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="time">
+       Hora:
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="time" name="time" required="" type="time"/>
+     </div>
+     <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="guests">
+       Número de invitados:
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="guests" name="guests" required="" type="number"/>
+     </div>
+     <div class="flex items-center justify-between">
+      <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+       Reservar
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <!-- Reservation Alert -->
+  <div class="alert" id="reservationAlert">
+   <div class="alert-content">
+    <span class="close" onclick="document.getElementById('reservationAlert').style.display='none'">
+     ×
+    </span>
+    <h2 class="font-bold text-lg mb-4">
+     Reserva realizada
+    </h2>
+    <p>
+     Su reserva se ha realizado con éxito. ¡Esperamos verle pronto!
+    </p>
+   </div>
+  </div>
+  <!-- Order Modal -->
+  <div class="modal" id="orderModal">
+   <div class="modal-content">
+    <span class="close" onclick="document.getElementById('orderModal').style.display='none'">
+     ×
+    </span>
+    <h2 class="font-bold text-lg mb-4">
+     🐲Realiza tu pedido en línea🐲
+    </h2>
+    <table class="min-w-full divide-y divide-gray-200">
+     <thead>
+      <tr>
+       <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+        Plato
+       </th>
+       <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+        Precio
+       </th>
+      </tr>
+     </thead>
+     <tbody class="bg-white divide-y divide-gray-200">
+      <!-- Repeat for each menu item with price -->
+      <!-- Example item -->
+      <tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        ARROZ CHAUFA
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $10.00
+       </td>
+      </tr>
+
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       SOPA DE CHAMAÑONES Y POLLO
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $10.00
+       </td>
+      </tr>
+
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       SOPA SAMS
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $4.50
+       </td>
+      </tr>
+
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       TOFU MAPO CON CARNE DE RES
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $4.50
+       </td>
+      </tr>
+
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       CHAULAFAN CON CAMARONES 
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $4.50
+       </td>
+      </tr>
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       CHAULAFAN CON POLLO
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $5.50
+       </td>
+      </tr>
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       TALLARÍN SINGAPURE
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $6.00
+       </td>
+      </tr>
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       CAMARONES TAUSI CON VERDURAS
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $5.80
+       </td>
+      </tr>
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       LOMO ESPECIAL TAUSI
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $6.40
+       </td>
+      </tr>
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       TALLARIN SAM SI
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $7.00
+       </td>
+      </tr>
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       SOPA PAC POW
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $3.70
+       </td>
+      </tr>
+<tr>
+       <td class="px-6 py-4 whitespace-no-wrap">
+       TOFU UMAMI CON QUINOA
+       </td>
+       <td class="px-6 py-4 whitespace-no-wrap">
+        $3.00
+       </td>
+      </tr>
+
+      <!-- Repeat 19 more times -->
+     </tbody>
+    </table>
+   </div>
+  </div>
+  <div class="bg-white mx-4 my-2 p-6 rounded-lg">
+   <div class="flex flex-col md:flex-row justify-between items-center">
+    <div class="mb-4 md:mb-0">
+     <h2 class="text-2xl font-bold text-red-600">
+      🐲 BIENVENIDO A NUESTRO CHIFA DRAGON 🐲
+     </h2>
+     <p class="text-gray-700 mt-2">
+      En Chifa Dragon, le ofrecemos los mejores platos que probaran, te ofrecemos una gran variedad de exquisitos platos tradicionales con el buen sabor, comida rica, frescas, preparado al instante lo más valioso que esta a tu alcance, una experiencia culinaria única con una mezcla de sabores asiáticos y latinoamericanos que tu paladar no se resistirá. Disfruta de nuestros platos chinos tradicionales con un toque ecuatoriano en un ambiente acogedor y familiar.
+¡Te invitamos a explorar nuestro menú y dejarte seducir por la magia de Chifa Dragón! ¡Ven y descubre por qué somos el lugar de referencia para aquellos que buscan una verdadera aventura culinaria! 🐉🍜🌶️
+     </p>
+    </div>
+    <div class="w-full md:w 1/2">
+     <!-- Placeholder for video -->
+     <div class="aspect-w-16 aspect-h-9">
+      <video src="F:/video.mp4" width="620" height="440" autoplay controls muted>< title="Video del restaurante">
+      </iframe>
+     </div>
+    </div>
+   </div>
+  </div>
+  <footer class="bg-white py-6 px-6 mt-6">
+    <!-- Placeholder for advertisement -->
+            <div class="mt-4 bg-gray-300 rounded-lg h-32 w-full flex items-center justify-center">
+<span class="text-gray-500"></span>
+             <img src="F:/Publicidad/PUBLICIDAD.jpg" width="700px" height="50px">  <img src="F:/Publicidad/PUBLICIDAD.jpg" width="700px" height="50px">  <img src="F:/Publicidad/PUBLICIDAD.jpg" width="700px" height="50px"> 
+            </div>
+        </div>
+    </section>
+   <div class="text-center text-gray-600">
+    © 2023 Chifa Dragon Restaurant. Todos los derechos reservados.
+   </div>
+  </footer>
+  <script>
+   // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal') || event.target.classList.contains('alert')) {
+                event.target.style.display = "none";
+            }
+        }
+  </script>
+ </body>
+</html>
